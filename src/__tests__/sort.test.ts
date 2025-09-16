@@ -25,18 +25,14 @@ describe('숫자 내림차순 정렬 함수', () => {
     });
 });
 
-
-//order를 제한할수있을까?
-export function simpleSort(arr: number[], order: 'asc'): number[] {
-    const sortedArr = [...arr]; // 원본 배열을 변경하지 않도록 복사
-    for (let i = 0; i < sortedArr.length - 1; i++) {
-        for (let j = 0; j < sortedArr.length - 1 - i; j++) {
-            if (sortedArr[j] > sortedArr[j + 1]) {
-                const temp = sortedArr[j];
-                sortedArr[j] = sortedArr[j + 1];
-                sortedArr[j + 1] = temp;
-            }   
-        }
-    }
-    return sortedArr;
-}
+describe('제네릭 정렬 함수', () => {
+    test('숫자 정렬', () => {
+        expect(simpleSort([3, 1, 2])).toEqual([1, 2, 3]);
+        expect(simpleSort([10, -5, 0, 2])).toEqual([-5, 0, 2, 10]);
+        expect(simpleSort(['c', 'a', 'b'])).toEqual(['a', 'b', 'c']);
+        expect(simpleSort(['banana', 'apple', 'cherry'])).toEqual(['apple', 'banana', 'cherry']);        
+        expect(simpleSort([1, 2, 3], 'desc')).toEqual([3, 2, 1]);
+        expect(simpleSort(['a', 'b', 'c'], 'desc')).toEqual(['c', 'b', 'a']);
+        expect(simpleSort([])).toEqual([]);
+    });
+});

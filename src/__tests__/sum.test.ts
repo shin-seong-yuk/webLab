@@ -1,8 +1,7 @@
 import { sum } from '@/sum';
-import '@jest/globals';
 
-describe('sum 함수 추가', () => {
-  test('두 숫자를 더할 때 올바른 결과를 반환한다', () => {
+describe('sum 함수 테스트', () => {
+  test('두 숫자를 더하면 올바른 결과를 반환한다', () => {
     expect(sum(2, 3)).toBe(5);
     expect(sum(-5, 10)).toBe(5);
     expect(sum(-2, -3)).toBe(-5);
